@@ -1,0 +1,20 @@
+# Ignore node_modules (dependencies installed via npm)
+node_modules/
+
+# Ignore environment files (contains sensitive credentials)
+.env
+
+# Ignore logs and temp files
+logs/
+*.log
+npm-debug.log*
+
+# Ignore TypeScript build outputs (if applicable)
+dist/
+build/
+
+# Ignore package-lock.json (optional, if you want flexibility in dependency versions)
+package-lock.json
+
+# Ignore VSCode settings (optional)
+.vscode/

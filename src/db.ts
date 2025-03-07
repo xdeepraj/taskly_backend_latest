@@ -14,7 +14,7 @@ export const AppDataSource = new DataSource({
   synchronize: false,
   migrationsRun: true,
   logging: ["error", "warn"],
-  entities: ["dist/entities/*.ts"], // Load entities
+  entities: [__dirname + "/entities/*.js"], // Load entities
   migrations: ["src/migrations/*.ts"], // Load migrations
   subscribers: [],
   extra: {

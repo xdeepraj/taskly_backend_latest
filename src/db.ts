@@ -11,11 +11,18 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  synchronize: false,
   migrationsRun: true,
   logging: ["error", "warn"],
-  entities: [__dirname + "/entities/*.js"], // Load entities
-  migrations: ["src/migrations/*.ts"], // Load migrations
+
+  // for deployment
+  entities: [__dirname + "/entities/*.js"],
+  synchronize: false,
+
+  // for local
+  // synchronize: true,
+  // entities: ["src/entities/*.ts"],
+
+  migrations: [__dirname + "/migrations/*.js"], // Load migrations
   subscribers: [],
   extra: {
     ssl: {
@@ -26,7 +33,7 @@ export const AppDataSource = new DataSource({
 
 AppDataSource.initialize()
   .then(() => {
-    console.log("📦 Database connected successfully!");
+    console.log("Database connected successfully!");
   })
   .catch((error) => console.log("Database connection error: ", error));
 
